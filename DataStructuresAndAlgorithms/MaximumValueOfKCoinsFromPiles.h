@@ -19,32 +19,27 @@ class Solution1 {
 public:
     int maxValueOfCoins(vector<vector<int>>& piles, int k) { 
         int maxTotal = 0;
-        bruteForce(piles, k, 0, 0, 0, maxTotal);
+        BruteForce(piles, k, 0, 0, 0, maxTotal);
         return maxTotal;
     }
     
 private:
-    void bruteForce(vector<vector<int>>& piles, int k, int pile, int coinsTaken, int totalValue, int& maxTotal)
+    void BruteForce(vector<vector<int>>& piles, int k, int pile, int coinsTaken, int totalValue, int& maxTotal)
     {
         if (coinsTaken == k)
         {
             maxTotal = max(maxTotal, totalValue);
             return;
         }
-
         if (HasNoPiles(piles, pile)) return;
+        
         Option1SkipCurrentPile(piles, k, pile, coinsTaken, totalValue, maxTotal);
         Option2StartWithCurrentPile(piles, k, pile, coinsTaken, totalValue, maxTotal);
     }
 
-    bool HasNoPiles(vector<vector<int>>& piles, int pile)
-    {
-        return pile >= piles.size();
-    }
-
     void Option1SkipCurrentPile(vector<vector<int>>& piles, int k, int pile, int coinsTaken, int totalValue, int& maxTotal)
     {
-        bruteForce(piles, k, pile + 1, coinsTaken, totalValue, maxTotal);
+        BruteForce(piles, k, pile + 1, coinsTaken, totalValue, maxTotal);
     }
 
     void Option2StartWithCurrentPile(vector<vector<int>>& piles, int k, int pile, int coinsTaken, int totalValue, int& maxTotal)
@@ -53,9 +48,14 @@ private:
         {
             int coin = piles[pile].front();
             piles[pile].erase(piles[pile].begin());
-            bruteForce(piles, k, pile, coinsTaken + 1, totalValue + coin, maxTotal);
+            BruteForce(piles, k, pile, coinsTaken + 1, totalValue + coin, maxTotal);
             piles[pile].insert(piles[pile].begin(), coin);
         }
+    }
+
+    bool HasNoPiles(vector<vector<int>>& piles, int pile)
+    {
+        return pile >= piles.size();
     }
 };
 
