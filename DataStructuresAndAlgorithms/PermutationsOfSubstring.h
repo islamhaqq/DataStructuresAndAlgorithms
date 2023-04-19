@@ -10,15 +10,18 @@ using namespace std;
 class PermutationsOfSubstring
 {
 public:
-    // O(s! * b)
-    vector<int> FindPermutationSubstrings(const string& smaller, const string& bigger)
+    vector<int> FindPermutationSubstringsOptimal(const string& smaller, const string& bigger)
+    {
+        // TODO: We need to get rid of the factorial part.
+        return {};
+    }
+    
+    // O(s! * b) - This is a really bad, suboptimal solution
+    vector<int> FindPermutationSubstringsSuboptimal(const string& smaller, const string& bigger)
     {
         vector<int> locations;
 
-        // O(s!)
         vector<string> permutations = GetPermutationsOfString(smaller);
-
-        // O(s! * b)
         for (string permutation : permutations)
         {
             for (int i = 0; i < bigger.size(); i++)

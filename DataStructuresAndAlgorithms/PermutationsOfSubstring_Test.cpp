@@ -9,7 +9,7 @@ TEST_P(ParameterizedPermutationsOfSubstring, BruteForce)
     string smaller = std::get<0>(GetParam());
     string bigger = std::get<1>(GetParam());
     vector<int> expected = std::get<2>(GetParam());
-    vector<int> actual = PermutationsOfSubstring().FindPermutationSubstrings(smaller, bigger);
+    vector<int> actual = PermutationsOfSubstring().FindPermutationSubstringsSuboptimal(smaller, bigger);
     ASSERT_EQ(expected, actual);
 }
 INSTANTIATE_TEST_CASE_P(
