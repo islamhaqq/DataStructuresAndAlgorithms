@@ -1,4 +1,4 @@
-﻿#include "PermutationsOfSubstring.h"
+﻿#include "../PermutationsOfSubstring.h"
 #include "gtest/gtest.h"
 
 using namespace std;

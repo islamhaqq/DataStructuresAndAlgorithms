@@ -1,4 +1,4 @@
-#include "MaximumValueOfKCoinsFromPiles.h"
+#include "../MaximumValueOfKCoinsFromPiles.h"
 #include "gtest/gtest.h"
 
 class ParameterizedMaximumValueOfKCoinsFromPiles : public ::testing::TestWithParam<std::tuple<vector<vector<int>>, int, int>> {};

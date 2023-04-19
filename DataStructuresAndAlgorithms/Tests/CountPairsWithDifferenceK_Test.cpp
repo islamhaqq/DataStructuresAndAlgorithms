@@ -1,4 +1,4 @@
-#include "CountPairsWithDifferenceK.h"
+#include "../CountPairsWithDifferenceK.h"
 #include "gtest/gtest.h"
 
 class ParameterizedCountPairsWithDifferenceK : public ::testing::TestWithParam<std::tuple<vector<int>, int, int>> {};
